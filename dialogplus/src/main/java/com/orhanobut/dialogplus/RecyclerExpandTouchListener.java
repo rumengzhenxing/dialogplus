@@ -1,17 +1,17 @@
 package com.orhanobut.dialogplus;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
-import android.widget.AbsListView;
 import android.widget.FrameLayout;
 
-class ExpandTouchListener implements View.OnTouchListener {
+class RecyclerExpandTouchListener implements View.OnTouchListener {
 
-  private final AbsListView absListView;
+  private final RecyclerView recyclerView;
   private final View contentContainer;
 
   /**
@@ -54,14 +54,14 @@ class ExpandTouchListener implements View.OnTouchListener {
    */
   private FrameLayout.LayoutParams params;
 
-  public static ExpandTouchListener newListener(Context context, AbsListView listView, View container,
-                                                int gravity, int displayHeight, int defaultContentHeight) {
-    return new ExpandTouchListener(context, listView, container, gravity, displayHeight, defaultContentHeight);
+  public static RecyclerExpandTouchListener newListener(Context context, RecyclerView recyclerView, View container,
+                                                        int gravity, int displayHeight, int defaultContentHeight) {
+    return new RecyclerExpandTouchListener(context, recyclerView, container, gravity, displayHeight, defaultContentHeight);
   }
 
-  private ExpandTouchListener(Context context, AbsListView absListView, View container, int gravity,
-                              int displayHeight, int defaultContentHeight) {
-    this.absListView = absListView;
+  private RecyclerExpandTouchListener(Context context, RecyclerView recyclerView, View container, int gravity,
+                                      int displayHeight, int defaultContentHeight) {
+    this.recyclerView = recyclerView;
     this.contentContainer = container;
     this.gravity = gravity;
     this.displayHeight = displayHeight;
@@ -91,7 +91,7 @@ class ExpandTouchListener implements View.OnTouchListener {
 
     // when the dialog is fullscreen and user scrolls the content
     // don't consume the event
-    if (!(!scrollUp && Utils.listIsAtTop(absListView)) && fullScreen) {
+    if (!(!scrollUp && Utils.listIsAtTop(recyclerView)) && fullScreen) {
       return false;
     }
 

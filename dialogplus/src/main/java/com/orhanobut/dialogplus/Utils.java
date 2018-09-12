@@ -2,6 +2,7 @@ package com.orhanobut.dialogplus;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,10 @@ final class Utils {
     animation.setAnimationListener(listener);
     animation.setDuration(200);
     view.startAnimation(animation);
+  }
+
+  static boolean listIsAtTop(RecyclerView recyclerView) {
+    return recyclerView.getChildCount() == 0 || recyclerView.getChildAt(0).getTop() == recyclerView.getPaddingTop();
   }
 
   static boolean listIsAtTop(AbsListView listView) {

@@ -17,7 +17,7 @@ android {
 
 dependencies {
   implementation deps.supportAnnotations
-
+  implementation 'com.android.support:recyclerview-v7:27.1.1'
   testImplementation deps.junit
   testImplementation deps.truth
   testImplementation deps.robolectric

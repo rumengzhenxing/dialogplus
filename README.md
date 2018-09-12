@@ -25,20 +25,23 @@ Simple and advanced dialog solution.
 ##### DialogPlus provides 3 content types:
 - ListHolder : Items will be shown in a listview
 - GridHolder : Items will be shown in a gridview
+- GridHolder : Items will be shown in a recyclerview
 - ViewHolder : Your customized view will be shown in the content
 
-### Gradle
+<!-- ### Gradle
 ```groovy
 implementation 'com.orhanobut:dialogplus:1.11@aar'
-```
+``` -->
 
 ### Usage
 Use the builder to create the dialog.
 
 Basic usage
 ```java
-DialogPlus dialog = DialogPlus.newDialog(this)
-  .setAdapter(adapter)
+// DialogPlus dialog = DialogPlus.newDialog(this)
+DialogPlus dialog = DialogPlus.newDialog(this,new RecyclerHolder())
+//   .setAdapter(adapter)
+  .setRecyclerAdapter(adapter)
   .setOnItemClickListener(new OnItemClickListener() {
     @Override
     public void onItemClick(DialogPlus dialog, Object item, View view, int position) {

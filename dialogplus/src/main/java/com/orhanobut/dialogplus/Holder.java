@@ -40,14 +40,18 @@ public interface Holder {
    */
   void setBackgroundResource(@ColorRes int colorResource);
 
-  @NonNull View getView(@NonNull LayoutInflater inflater, ViewGroup parent);
+  @NonNull
+  View getView(@NonNull LayoutInflater inflater, ViewGroup parent);
 
   void setOnKeyListener(View.OnKeyListener keyListener);
 
-  @NonNull View getInflatedView();
+  @NonNull
+  View getInflatedView();
 
-  @Nullable View getHeader();
+  @Nullable
+  View getHeader();
 
-  @Nullable View getFooter();
+  @Nullable
+  View getFooter();
 
 }
